@@ -1,4 +1,4 @@
-from . import db
+from PmBlocker.mongo import db
 
 approvedDB = db.approvedDB
 
