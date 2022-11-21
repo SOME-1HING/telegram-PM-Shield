@@ -16,7 +16,9 @@ async def pmblock(_, message: Message):
     try:
         await ubot.block_user(user.id)
         await approved_db.remove_approved_user(user.id)
-        return await message.reply_text(f"Done, `{user.id}` is blocked.")
+        return await message.reply_text(
+            f"`{user.id}` is blocked. Please write your reason to contact to admins of @tyranteyeeee. If the reason is valid, you will be unblocked."
+        )
     except Exception as e:
         return await ubot.send_message(USER_ID, f"Error: {e}")
 
@@ -36,8 +38,6 @@ async def block(_, message: Message):
     try:
         await ubot.block_user(user_id)
         await approved_db.remove_approved_user(user_id)
-        return await message.reply_text(
-            f"`{user_id}` is blocked. Please write your reason to contact to admins of @tyranteyeeee. If the reason is valid, you will be unblocked."
-        )
+        return await message.reply_text(f"`{user_id}` is blocked.")
     except Exception as e:
         return await ubot.send_message(USER_ID, f"Error: {e}")
