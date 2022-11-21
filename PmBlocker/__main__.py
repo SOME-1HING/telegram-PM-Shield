@@ -1,21 +1,18 @@
 import asyncio
 
-from PmBlocker import ubot
+from PmBlocker import ubot, UB_ID
 from PmBlocker.modules import ALL_MODULES
 from PmBlocker.logger import LOGGER
 
 
 async def load_start():
-    ub = await ubot.get_me()
 
-    await ubot.send_message(ub.id, "Pm Blocker Initialized")
+    await ubot.send_message(UB_ID, "Pm Blocker Initialized")
 
+    LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
     LOGGER.info("[INFO]: STARTED")
 
 
-if __name__ == "__main__":
-    ubot.start()
-    LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
-    loop = asyncio.get_event_loop_policy().get_event_loop()
-    loop.run_until_complete(load_start())
-    loop.close()
+loop = asyncio.get_event_loop_policy().get_event_loop()
+loop.run_until_complete(load_start())
+loop.close()
