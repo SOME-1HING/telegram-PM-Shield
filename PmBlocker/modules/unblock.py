@@ -17,7 +17,8 @@ async def unblock(_, message: Message):
             if len(message.command) < 2:
                 return await message.reply_text("Please mention user id to approve.")
             user_id = int(message.text.split(None, 1)[1])
-
+    else:
+        return
     try:
         await ubot.unblock_user(user_id)
         await approved_db.add_approved_user(user_id)
