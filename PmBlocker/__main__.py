@@ -14,4 +14,5 @@ async def load_start():
 
 
 loop = asyncio.get_event_loop_policy().get_event_loop()
-loop.run_until_complete(load_start())
+while True:
+    loop.run_until_complete(load_start())
