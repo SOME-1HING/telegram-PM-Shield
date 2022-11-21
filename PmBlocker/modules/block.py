@@ -26,6 +26,10 @@ async def pmblock(_, message: Message):
 @ubot.on_message(filters.command("block"))
 async def block(_, message: Message):
     if message.from_user.id == USER_ID:
+        if message.from_user.is_contact:
+            return await message.reply_text(
+                "User is in contact list, remove them from contact before trying."
+            )
         if message.reply_to_message:
             user_id = message.reply_to_message.from_user.id
         elif message.chat.type == ChatType.PRIVATE:

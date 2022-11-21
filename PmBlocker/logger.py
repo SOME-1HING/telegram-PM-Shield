@@ -1,6 +1,6 @@
 import logging
 
-FORMAT = "[PmBLocker] %(message)s"
+FORMAT = "[PmBlocker] %(message)s"
 logging.basicConfig(
     handlers=[logging.FileHandler("pm_blocker_logs.txt"), logging.StreamHandler()],
     level=logging.INFO,
@@ -12,5 +12,5 @@ logging.getLogger("ptbcontrib.postgres_persistence.postgrespersistence").setLeve
     logging.WARNING
 )
 
-LOGGER = logging.getLogger("[PmBLocker]")
-LOGGER.info("PmBLocker is starting.")
+LOGGER = logging.getLogger("[PmBlocker]")
+LOGGER.info("PmBlocker is starting.")

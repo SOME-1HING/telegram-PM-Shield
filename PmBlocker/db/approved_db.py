@@ -10,13 +10,6 @@ async def is_user_approved(user_id: int) -> bool:
     return True
 
 
-async def get_approved_users() -> list:
-    users_list = []
-    for user in approvedDB.find({"user_id": {"$gt": 0}}):
-        users_list.append(user)
-    return users_list
-
-
 async def add_approved_user(user_id: int):
     is_approved = await is_user_approved(user_id)
     if is_approved:
