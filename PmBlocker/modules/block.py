@@ -6,17 +6,17 @@ from PmBlocker.config import USER_ID
 from PmBlocker.db import approved_db
 
 
-@ubot.on_message(
-    filters.all & filters.private & ~filters.me & ~filters.bot & ~filters.contact
-)
+@ubot.on_message(filters.all & filters.private & ~filters.me & ~filters.bot)
 async def pmblock(_, message: Message):
-    user_id = message.from_user.id
-    if await approved_db.is_user_approved(user_id):
+    user = message.from_user
+    if user.is_contact:
+        return await approved_db.add_approved_user(user.id)
+    if await approved_db.is_user_approved(user.id):
         return
     try:
-        await ubot.block_user(user_id)
-        await approved_db.remove_approved_user(user_id)
-        return await message.reply_text(f"Done, `{user_id}` is blocked.")
+        await ubot.block_user(user.id)
+        await approved_db.remove_approved_user(user.id)
+        return await message.reply_text(f"Done, `{user.id}` is blocked.")
     except Exception as e:
         return await ubot.send_message(USER_ID, f"Error: {e}")
 
