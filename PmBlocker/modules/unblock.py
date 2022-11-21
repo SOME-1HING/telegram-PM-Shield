@@ -23,4 +23,4 @@ async def unblock(_, message: Message):
         await approved_db.add_approved_user(user_id)
         return await message.reply_text(f"Done, `{user_id}` is unblocked.")
     except Exception as e:
-        return await message.reply_text(f"Error: {e}")
+        return await ubot.send_message(USER_ID, f"Error: {e}")
