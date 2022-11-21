@@ -1,0 +1,30 @@
+{
+  "name": "PmBlocker",
+  "description": "PM blocker for telegram",
+  "stack": "container",
+  "env": {
+    "API_ID": {
+      "required": true
+    },
+    "API_HASH": {
+      "required": true
+    },
+    "STRING_SESSION": {
+      "required": true
+    },
+    "MONGO_DB_URI": {
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}
