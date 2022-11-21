@@ -1,6 +1,6 @@
 FROM python:3.10.8-buster
 
-WORKDIR /PulseRadio/
+WORKDIR /PmBlocker/
 
 RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN pip3 install --upgrade pip setuptools
