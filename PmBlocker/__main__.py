@@ -6,8 +6,9 @@ from PmBlocker.logger import LOGGER
 
 
 async def load_start():
+    ub = await ubot.get_me()
 
-    await ubot.send_message(ubot.get_me().id, "Pm Blocker Initialized")
+    await ubot.send_message(ub.id, "Pm Blocker Initialized")
 
     LOGGER.info("[INFO]: STARTED")
 
