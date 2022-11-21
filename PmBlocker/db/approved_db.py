@@ -18,14 +18,14 @@ async def get_approved_users() -> list:
 
 
 async def add_approved_user(user_id: int):
-    is_approved = approvedDB(user_id)
+    is_approved = is_user_approved(user_id)
     if is_approved:
         return
     return approvedDB.insert_one({"user_id": user_id})
 
 
 async def remove_approved_user(user_id: int):
-    is_approved = approvedDB(user_id)
+    is_approved = is_user_approved(user_id)
     if not is_approved:
         return
     return approvedDB.delete_one({"user_id": user_id})
