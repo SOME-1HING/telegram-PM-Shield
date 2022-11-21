@@ -2,6 +2,7 @@ from PmBlocker.logger import LOGGER
 
 from .pmMsg import *
 from .unblock import *
+from .block import *
 
 
 def __list_all_modules():
