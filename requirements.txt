@@ -1,2 +1,7 @@
 Pyrogram
 tgcrypto
+aiohttp
+aiofiles
+asyncio
+dnspython
+motor
