@@ -6,7 +6,7 @@ from PmBlocker.config import USER_ID
 from PmBlocker.db import approved_db
 
 
-@ubot.on_message(filters.private & ~filters.me & ~filters.bot)
+@ubot.on_message(filters.all & filters.private & ~filters.me & ~filters.bot)
 async def pmblock(_, message: Message):
     user_id = message.from_user.id
     if approved_db.is_user_approved(user_id):
