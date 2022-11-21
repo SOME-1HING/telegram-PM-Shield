@@ -1,6 +1,6 @@
 import asyncio
 
-from PmBlocker import ubot, UB_ID
+from PmBlocker import ubot
 from PmBlocker.modules import ALL_MODULES
 from PmBlocker.logger import LOGGER
 
